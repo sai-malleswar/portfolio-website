@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendations</title>
+    <style>
+        /* Add some basic styling to make it look nice */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+        }
+        
+        h1 {
+            color: #333; /* Dark gray title */
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex; /* Make the list items display horizontally */
+            flex-wrap: wrap; /* Allow the list items to wrap to the next line */
+        }
+        
+        li {
+            margin: 10px; /* Add some space between recommendations */
+            width: calc(20% - 20px); /* Set the width of each list item */
+            display: flex; /* Make the image and text display vertically */
+            flex-direction: column; /* Make the image and text display vertically */
+            align-items: center; /* Center the image and text horizontally */
+        }
+        
+        img {
+            width: 100%; /* Set the image width to 100% of the list item */
+            height: auto; /* Set the image height to auto to maintain aspect ratio */
+            border-radius: 10px; /* Add a slight rounded corner effect */
+            object-fit: cover; /* Make the image cover the entire width and height */
+        }
+        
+        p {
+            font-size: 16px; /* Set text size */
+            color: #666; /* Darker gray text */
+            margin-top: 10px; /* Add some space between the image and text */
+            text-align: center; /* Center the text horizontally */
+        }
+        
+        /* Add a hover effect to the images */
+        img:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            cursor: pointer; /* Change cursor to a pointing hand */
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Recommendations</h1>
+    {% if recommendations %}
+    <ul>
+        {% for recommendation in recommendations %}
+            <li>
+                <img src="{{ recommendation.1 }}" alt="{{ recommendation.0 }}">
+                <p>{{ recommendation.0 }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No recommendations found.</p>
+    {% endif %}
+</body>
+</html>
