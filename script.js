@@ -108,4 +108,8 @@ function scrollActive() {
     })
 }
 
+<<<<<<< HEAD
 window.addEventListener('scroll', scrollActive)
+=======
+window.addEventListener('scroll', scrollActive)
+>>>>>>> dce053d49017f12d82a5dc249ded9410a9e87909
